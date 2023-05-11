@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer');
+require('dotenv').config();
+
 console.log("Hello World!");
 
 const LAUNCH_OPTION = {
@@ -8,8 +10,8 @@ const LAUNCH_OPTION = {
 async function main() {
 const browser = await puppeteer.launch(LAUNCH_OPTION);
 try {
-  const USERNAME = '######';
-  const PASSWORD = '######';
+  const USERNAME = process.env.USERNAME;
+  const PASSWORD = process.env.PASSWORD;
 
 	const page = await browser.newPage();	// 新しいタブを開く
 	
